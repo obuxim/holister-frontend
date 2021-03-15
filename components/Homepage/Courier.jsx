@@ -49,11 +49,8 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
     <div className="container mt-5">
       <form>
         <div className="row justify-content-center">
-          <div className="col-12 p-2">
-            <h6 className="text-capitalize">Courier Type: {courierType}</h6>
-          </div>
-          <div className="col-6 row">
-            <h6>Sender Address</h6>
+          <div className="col-12 col-md-6 row">
+            <h6 className="mt-2">Sender Address</h6>
             <div className="col-6">
               <select
                 className="form-control"
@@ -86,8 +83,8 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
               ></textarea>
             </div>
           </div>
-          <div className="col-6 row">
-            <h6>Receiver Address</h6>
+          <div className="col-12 col-md-6 row">
+            <h6 className="mt-2">Receiver Address</h6>
             <div className="col-6">
               <select
                 className="form-control"
@@ -118,6 +115,60 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                 className="form-control"
                 placeholder="Receiver Street Address, House No"
               ></textarea>
+            </div>
+          </div>
+          <div className="col-12 row mt-3">
+            <div className="col-12">
+              <div className="form-group">
+                <select className="form-control">
+                  <option value={0}>Delivery Mode</option>
+                  {eligibleDeliveryModes.map((mode) => (
+                    <option key={mode.id} value={mode.id}>
+                      {mode.title} - {mode.price} TK
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 row mt-3">
+            <div className="col-6">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Receiver Name"
+                />
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="form-group">
+                <input
+                  type="phone"
+                  className="form-control"
+                  placeholder="Receiver Phone"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-12 row mt-3">
+            <div className="col-12 col-md-4">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" />
+                <label className="form-check-label">Fragile</label>
+              </div>
+            </div>
+            <div className="col-12 col-md-4">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" />
+                <label className="form-check-label">Cash on Delivery</label>
+              </div>
+            </div>
+            <div className="col-12 col-md-4">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" />
+                <label className="form-check-label">Paid by Receiver</label>
+              </div>
             </div>
           </div>
         </div>

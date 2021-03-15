@@ -9,7 +9,7 @@ import Slider from "../components/Slider";
 import { useState } from "react";
 import Courier from "../components/Homepage/Courier";
 
-const api_url = process.env.API_URL;
+const api_url = process.env.API_URL || "http://localhost:8000/api/";
 
 export default function Home({ cities, delivery_modes }) {
   const [currentService, setCurrentService] = useState("courier");
