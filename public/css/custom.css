@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root{
+    --primary-color: #030422;
+    --secondary-color: #818190;
+    --accent-color: #F2F4F8;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+.p-custom{
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: var(--primary-color);
+    text-decoration: none; 
+}
+.fs-1{
+    font-weight: 700;
+}
+.fs-2{
+    font-weight: 700;
+}
+.fs-3{
+    font-weight: 600;
+}
+
+.fs-5{
+    font-weight: 600;
+}
+
+.fs-6{
+    font-weight: 600;
+}
+
+.rounded{
+    border-radius: .5rem!important;
+}
+
+.card-border-none {
+    border: none;
+}
+
+.card-body{
+    padding: 0;
+}
+
+.align{
+    align-self: flex-end;
+}
+
+/* app section backgroud color*/
+.container.app{
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+.app-store{
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+.size{
+    width: 80px;
+    height: 80px;
+}
+.form-control{
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: .5rem!important;
+}
+.btn-trigger{
+    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    text-align: start;
+    border: none;
+}
+
+.btn-modal{
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.about-image{
+        align-self: center;
+}
+
+.form-button{
+    background-color: var(--primary-color);
+    border-color: #030422;
+    color: var(--accent-color);
+    width: 250px;
+}
+
+.card-button{
+    background-color: #030422;
+    border-color: #030422;
+    color: #F2F4F8;
+}
+/* footer section backgroud color*/
+.container-fluid.bg{
+    background-color: var(--accent-color);
+}
+
+/*custom button*/
+.button {
+    border: 2px solid var(--primary-color);
+    border-radius: .5rem;
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  /* Green */
+  .success {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+  
+  .success:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+  }
+/*custom button end*/
+
+
+.card-border{
+    border: 2px solid var(--secondary-color);
+}
+
+
+
+.nav-pills .nav-link.active{
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+}
+
+.icon-custom{
+    font-size: 70px;
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+}
+
+.heroimage {
+    color: var(--accent-color);
+    background-image: url("../assets/aboutheroimage.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+  }
+
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+/* Set the size of the div element that contains the map */
+#map {
+    height: 250px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
