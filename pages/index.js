@@ -62,7 +62,7 @@ export const getStaticProps = async (context) => {
   const cityRes = await fetch(`${api_url}city/get_with_areas`);
   const cityJson = await cityRes.json();
   // Get Delivery Mode
-  const deliveryModeRes = await fetch(`${api_url}api/delivery_mode`);
+  const deliveryModeRes = await fetch(`${api_url}delivery_mode`);
   const deliveryModeJson = await deliveryModeRes.json();
   // Get Packaging Type
 
