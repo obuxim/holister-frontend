@@ -11,7 +11,7 @@ import Courier from "../components/Homepage/Courier";
 
 const api_url = process.env.API_URL || "http://localhost:8000/api/";
 
-export default function Home({ cities, delivery_modes }) {
+export default function Home({ cities, delivery_modes, packaging_types }) {
   const [currentService, setCurrentService] = useState("courier");
   return (
     <>
@@ -44,7 +44,11 @@ export default function Home({ cities, delivery_modes }) {
       </div>
 
       {currentService === "courier" ? (
-        <Courier cities={cities} delivery_modes={delivery_modes} />
+        <Courier
+          cities={cities}
+          delivery_modes={delivery_modes}
+          packaging_types={packaging_types}
+        />
       ) : (
         "d"
       )}
@@ -65,11 +69,13 @@ export const getStaticProps = async (context) => {
   const deliveryModeRes = await fetch(`${api_url}delivery_mode`);
   const deliveryModeJson = await deliveryModeRes.json();
   // Get Packaging Type
-
+  const packagingTypeRes = await fetch(`${api_url}packaging_type`);
+  const packagingTypeJson = await packagingTypeRes.json();
   return {
     props: {
       cities: cityJson,
       delivery_modes: deliveryModeJson.data,
+      packaging_types: packagingTypeJson.data,
     },
   };
 };

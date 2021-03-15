@@ -171,6 +171,29 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
               </div>
             </div>
           </div>
+          <div className="col-12 row mt-3">
+            <div className="col-12">
+              <div className="form-group">
+                <select className="form-control">
+                  <option value={0}>Packaging Type</option>
+                  {packaging_types.map((packaging_type) => (
+                    <option value={packaging_type.id} key={packaging_type.id}>
+                      {packaging_type.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 row mt-3">
+            <div className="col-12">
+              <div className="form-group">
+                <button className="btn btn-custom-primary w-100">
+                  Request Pickup
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     </div>
