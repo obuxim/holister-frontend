@@ -9,6 +9,8 @@ import Slider from "../components/Slider";
 import { useState } from "react";
 import Courier from "../components/Homepage/Courier";
 
+const api_url = process.env.API_URL;
+
 export default function Home({ cities, delivery_modes }) {
   const [currentService, setCurrentService] = useState("courier");
   return (
@@ -57,12 +59,10 @@ export default function Home({ cities, delivery_modes }) {
 
 export const getStaticProps = async (context) => {
   // Get City & Area
-  const cityRes = await fetch(`http://localhost:8000/api/city/get_with_areas`);
+  const cityRes = await fetch(`${api_url}city/get_with_areas`);
   const cityJson = await cityRes.json();
   // Get Delivery Mode
-  const deliveryModeRes = await fetch(
-    `http://localhost:8000/api/delivery_mode`
-  );
+  const deliveryModeRes = await fetch(`${api_url}api/delivery_mode`);
   const deliveryModeJson = await deliveryModeRes.json();
   // Get Packaging Type
 
