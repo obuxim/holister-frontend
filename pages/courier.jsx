@@ -3,7 +3,7 @@ import PageHeading from '../components/Homepage/PageHeading';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
-const api_url = 'http://localhost:8000/api/';
+const api_url = process.env.API_URL || 'http://localhost:8000/api/';
 
 const courier = ({ cities, delivery_modes, packaging_types }) => {
   const [senderAreas, setSenderAreas] = useState([]);
