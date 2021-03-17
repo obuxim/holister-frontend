@@ -175,6 +175,20 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
             </div>
             <div className='col-12'>
               <div className='form-group'>
+                <select name='courier_type_id' ref={register} className='form-control'>
+                  <option value=''>Courier Type</option>
+                </select>
+              </div>
+            </div>
+            <div className='col-12'>
+              <div className='form-group'>
+                <select name='delivery_mode' ref={register} className='form-control'>
+                  <option value=''>Delivery Mode</option>
+                </select>
+              </div>
+            </div>
+            <div className='col-12'>
+              <div className='form-group'>
                 <input type='submit' className='btn btn-custom-primary w-100' />
               </div>
             </div>
