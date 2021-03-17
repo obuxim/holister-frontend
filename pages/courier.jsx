@@ -32,7 +32,7 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
                 role='presentation'
               >
                 <label className={`nav-link fs-6 py-3 ${courierType == 'intracity' && 'active'}`}>
-                  Intra City
+                  Inside City
                 </label>
               </li>
               <li
@@ -43,7 +43,7 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
                 <label
                   className={`nav-link fs-6 py-3 ${courierType == 'intercity' ? 'active' : ''}`}
                 >
-                  Inter City
+                  City to City
                 </label>
               </li>
               <input type='hidden' ref={register} name='courier_type' value={courierType} />
@@ -174,13 +174,17 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
                 </select>
               </div>
             </div>
-            <div className='col-12'>
-              <div className='form-group'>
-                <select name='delivery_mode' ref={register} className='form-control'>
-                  <option value=''>Delivery Mode</option>
-                </select>
+            {courierType == 'intracity' ? (
+              <div className='col-12'>
+                <div className='form-group'>
+                  <select name='delivery_mode' ref={register} className='form-control'>
+                    <option value=''>Delivery Mode</option>
+                  </select>
+                </div>
               </div>
-            </div>
+            ) : (
+              ''
+            )}
             <div className='col-12 col-md-4'>
               <div className='form-check'>
                 <input type='checkbox' className='form-check-input' ref={register} name='fragile' />
