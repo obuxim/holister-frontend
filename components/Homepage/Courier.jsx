@@ -13,6 +13,10 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
   const [courierType, setCourierType] = useState(
     "Select sender and receiver city!"
   );
+  // Sender Street Address
+  const [senderAddress, setSenderAddress] = useState("");
+  // Receiver Street Address
+  const [receiverAddress, setReceiverAddress] = useState("");
   // Eligible Delivery Modes
   const [eligibleDeliveryModes, setEligibleDeliveryModes] = useState([]);
 
@@ -182,6 +186,18 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                     </option>
                   ))}
                 </select>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 row mt-3">
+            <div className="col-12">
+              <div className="form-group">
+                <textarea
+                  className="form-control"
+                  cols="30"
+                  rows="3"
+                  placeholder="Sender Note (Optional)"
+                ></textarea>
               </div>
             </div>
           </div>

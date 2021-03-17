@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Services = () => {
   return (
@@ -8,21 +9,20 @@ const Services = () => {
         <div className="container mt-3 mt-md-4">
           <div className="row row-cols-2 row-cols-md-4 g-4">
             <div className="col">
-              <a
-                href="courier.html"
-                className="card card-border-none rounded shadow-sm "
-              >
-                <img
-                  src="/assets/icons/courier.svg"
-                  className="card-img-top px-5 px-lg-5 py-3 py-lg-4"
-                  alt
-                />
-                <div className="card-body px-2 pb-2">
-                  <p className="fs-6 fs-lg-4 card-title text-center">
-                    SEND A PARCEL
-                  </p>
-                </div>
-              </a>
+              <Link href="/courier">
+                <a className="card card-border-none rounded shadow-sm ">
+                  <img
+                    src="/assets/icons/courier.svg"
+                    className="card-img-top px-5 px-lg-5 py-3 py-lg-4"
+                    alt
+                  />
+                  <div className="card-body px-2 pb-2">
+                    <p className="fs-6 fs-lg-4 card-title text-center">
+                      SEND A PARCEL
+                    </p>
+                  </div>
+                </a>
+              </Link>
             </div>
             <div className="col">
               <a
