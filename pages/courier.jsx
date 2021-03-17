@@ -112,7 +112,7 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
                             {senderCity.name}
                           </option>
                         ) : (
-                          <option>Please select a sender city</option>
+                          <option>Receiver City</option>
                         )}
                       </select>
                     ) : (
