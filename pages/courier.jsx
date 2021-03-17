@@ -6,14 +6,20 @@ import { useState } from 'react';
 const api_url = process.env.API_URL || 'http://localhost:8000/api/';
 
 const courier = ({ cities, delivery_modes, packaging_types }) => {
+  const [senderCity, setSenderCity] = useState({});
   const [senderAreas, setSenderAreas] = useState([]);
   const [receiverAreas, setReceiverAreas] = useState([]);
   const [courierType, setCourierType] = useState('intracity');
+  const [cashOnDelivery, setCashOnDelivery] = useState(false);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   const updateSenderAreas = (senderCityId) => {
     const cityObj = cities.filter((city) => city.id == senderCityId)[0];
+    setSenderCity(cityObj);
     setSenderAreas(cityObj.areas);
+    if (courierType == 'intracity') {
+      updateReceiverAreas(senderCityId);
+    }
   };
   const updateReceiverAreas = (receiverCityId) => {
     const cityObj = cities.filter((city) => city.id == receiverCityId)[0];
@@ -99,21 +105,33 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
               <div className='row'>
                 <div className='col-12'>
                   <div className='form-group'>
-                    <select
-                      onChange={(e) => {
-                        updateReceiverAreas(e.target.value);
-                      }}
-                      name='receiver_city_id_city'
-                      ref={register}
-                      className='form-control'
-                    >
-                      <option value=''>Receiver City</option>
-                      {cities.map((city) => (
-                        <option key={city.id} value={city.id}>
-                          {city.name}
-                        </option>
-                      ))}
-                    </select>
+                    {courierType == 'intracity' ? (
+                      <select name='receiver_city_id_city' ref={register} className='form-control'>
+                        {senderCity.id ? (
+                          <option selected value={senderCity.id}>
+                            {senderCity.name}
+                          </option>
+                        ) : (
+                          <option>Please select a sender city</option>
+                        )}
+                      </select>
+                    ) : (
+                      <select
+                        onChange={(e) => {
+                          updateReceiverAreas(e.target.value);
+                        }}
+                        name='receiver_city_id_city'
+                        ref={register}
+                        className='form-control'
+                      >
+                        <option value=''>Receiver City</option>
+                        {cities.map((city) => (
+                          <option key={city.id} value={city.id}>
+                            {city.name}
+                          </option>
+                        ))}
+                      </select>
+                    )}
                   </div>
                 </div>
                 <div className='col-12'>
@@ -186,26 +204,48 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
               ''
             )}
             <div className='col-12 col-md-4'>
-              <div className='form-check'>
-                <input type='checkbox' className='form-check-input' ref={register} name='fragile' />
-                <label className='form-check-label'>Fragile?</label>
+              <div className='form-group'>
+                <select name='fragile' ref={register} className='form-control'>
+                  <option value=''>Fragile?</option>
+                  <option value={0}>No</option>
+                  <option value={1}>Yes</option>
+                </select>
               </div>
             </div>
             <div className='col-12 col-md-4'>
-              <div className='form-check'>
-                <input
-                  type='checkbox'
-                  className='form-check-input'
+              <div className='form-group'>
+                <select
+                  name='paid_by'
+                  onChange={(e) => {
+                    if (e.target.value == 'from_cod') {
+                      setCashOnDelivery(true);
+                    } else {
+                      setCashOnDelivery(false);
+                    }
+                  }}
                   ref={register}
-                  name='paid_by_receiver'
-                />
-                <label className='form-check-label'>Paid by Receiver?</label>
+                  className='form-control'
+                >
+                  <option value=''>Paid by</option>
+                  <option value='receiver'>Receiver</option>
+                  <option value='sender'>Sender</option>
+                  <option value='from_cod'>Merge with COD</option>
+                </select>
               </div>
             </div>
             <div className='col-12 col-md-4'>
-              <div className='form-check'>
-                <input type='checkbox' className='form-check-input' ref={register} name='cod' />
-                <label className='form-check-label'>Cash on Delivery?</label>
+              <div className='form-group'>
+                <select name='cod' ref={register} className='form-control'>
+                  <option value=''>Cash on Delivery</option>
+                  {cashOnDelivery ? (
+                    <option value={1} selected={true}>
+                      Yes
+                    </option>
+                  ) : (
+                    <option value={1}>Yes</option>
+                  )}
+                  <option value={0}>No</option>
+                </select>
               </div>
             </div>
             <div className='col-12'>
