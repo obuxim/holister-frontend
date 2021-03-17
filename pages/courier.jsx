@@ -8,6 +8,7 @@ const api_url = process.env.API_URL || 'http://localhost:8000/api/';
 const courier = ({ cities, delivery_modes, packaging_types }) => {
   const [senderAreas, setSenderAreas] = useState([]);
   const [receiverAreas, setReceiverAreas] = useState([]);
+  const [courierType, setCourierType] = useState('intracity');
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   const updateSenderAreas = (senderCityId) => {
@@ -24,6 +25,29 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='container'>
           <div className='row'>
+            <ul className='nav nav-pills' id='pills-tab' role='tablist'>
+              <li
+                onClick={(e) => setCourierType('intracity')}
+                className='mb-3 nav-item col-6 button success text-center'
+                role='presentation'
+              >
+                <label className={`nav-link fs-6 py-3 ${courierType == 'intracity' && 'active'}`}>
+                  Intra City
+                </label>
+              </li>
+              <li
+                onClick={(e) => setCourierType('intercity')}
+                className='mb-3 nav-item col-6 button success text-center'
+                role='presentation'
+              >
+                <label
+                  className={`nav-link fs-6 py-3 ${courierType == 'intercity' ? 'active' : ''}`}
+                >
+                  Inter City
+                </label>
+              </li>
+              <input type='hidden' ref={register} name='courier_type' value={courierType} />
+            </ul>
             <div className='col-12 col-md-6'>
               <div className='row'>
                 <div className='col-12'>
@@ -151,12 +175,19 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
               </div>
             </div>
             <div className='col-12'>
+              <div className='form-group'>
+                <select name='delivery_mode' ref={register} className='form-control'>
+                  <option value=''>Delivery Mode</option>
+                </select>
+              </div>
+            </div>
+            <div className='col-12 col-md-4'>
               <div className='form-check'>
                 <input type='checkbox' className='form-check-input' ref={register} name='fragile' />
                 <label className='form-check-label'>Fragile?</label>
               </div>
             </div>
-            <div className='col-12'>
+            <div className='col-12 col-md-4'>
               <div className='form-check'>
                 <input
                   type='checkbox'
@@ -167,24 +198,10 @@ const courier = ({ cities, delivery_modes, packaging_types }) => {
                 <label className='form-check-label'>Paid by Receiver?</label>
               </div>
             </div>
-            <div className='col-12'>
+            <div className='col-12 col-md-4'>
               <div className='form-check'>
                 <input type='checkbox' className='form-check-input' ref={register} name='cod' />
                 <label className='form-check-label'>Cash on Delivery?</label>
-              </div>
-            </div>
-            <div className='col-12'>
-              <div className='form-group'>
-                <select name='courier_type_id' ref={register} className='form-control'>
-                  <option value=''>Courier Type</option>
-                </select>
-              </div>
-            </div>
-            <div className='col-12'>
-              <div className='form-group'>
-                <select name='delivery_mode' ref={register} className='form-control'>
-                  <option value=''>Delivery Mode</option>
-                </select>
               </div>
             </div>
             <div className='col-12'>

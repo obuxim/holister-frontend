@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const Courier = ({ cities, delivery_modes, packaging_types }) => {
   // Receiver City
@@ -10,13 +10,11 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
   // Sender Areas
   const [senderAreas, setSenderAreas] = useState([]);
   // Courier Type
-  const [courierType, setCourierType] = useState(
-    "Select sender and receiver city!"
-  );
+  const [courierType, setCourierType] = useState('Select sender and receiver city!');
   // Sender Street Address
-  const [senderAddress, setSenderAddress] = useState("");
+  const [senderAddress, setSenderAddress] = useState('');
   // Receiver Street Address
-  const [receiverAddress, setReceiverAddress] = useState("");
+  const [receiverAddress, setReceiverAddress] = useState('');
   // Eligible Delivery Modes
   const [eligibleDeliveryModes, setEligibleDeliveryModes] = useState([]);
 
@@ -36,28 +34,24 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
 
   function checkCourierType(senderCityId, receiverCityId) {
     if (senderCityId == receiverCityId) {
-      const modes = delivery_modes.filter(
-        (mode) => mode.courier_type == "intracity"
-      );
+      const modes = delivery_modes.filter((mode) => mode.courier_type == 'intracity');
       setEligibleDeliveryModes(modes);
-      setCourierType("intracity");
+      setCourierType('intracity');
     } else {
-      const modes = delivery_modes.filter(
-        (mode) => mode.courier_type == "intercity"
-      );
+      const modes = delivery_modes.filter((mode) => mode.courier_type == 'intercity');
       setEligibleDeliveryModes(modes);
-      setCourierType("intercity");
+      setCourierType('intercity');
     }
   }
   return (
-    <div className="container mt-5">
+    <div className='container mt-5'>
       <form>
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-6 row">
-            <h6 className="mt-2">Sender Address</h6>
-            <div className="col-6">
+        <div className='row justify-content-center'>
+          <div className='col-12 col-md-6 row'>
+            <h6 className='mt-2'>Sender Address</h6>
+            <div className='col-6'>
               <select
-                className="form-control"
+                className='form-control'
                 onChange={(e) => senderCityUpdate(parseInt(e.target.value))}
               >
                 <option>Sender City</option>
@@ -68,8 +62,8 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                 ))}
               </select>
             </div>
-            <div className="col-6">
-              <select className="form-control">
+            <div className='col-6'>
+              <select className='form-control'>
                 <option>Sender Area</option>
                 {senderAreas.map((area) => (
                   <option key={area.id} value={area.id}>
@@ -78,20 +72,20 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                 ))}
               </select>
             </div>
-            <div className="col-12 mt-3">
+            <div className='col-12 mt-3'>
               <textarea
-                cols="30"
-                rows="3"
-                className="form-control"
-                placeholder="Senders Street Address, House No"
+                cols='30'
+                rows='3'
+                className='form-control'
+                placeholder='Senders Street Address, House No'
               ></textarea>
             </div>
           </div>
-          <div className="col-12 col-md-6 row">
-            <h6 className="mt-2">Receiver Address</h6>
-            <div className="col-6">
+          <div className='col-12 col-md-6 row'>
+            <h6 className='mt-2'>Receiver Address</h6>
+            <div className='col-6'>
               <select
-                className="form-control"
+                className='form-control'
                 onChange={(e) => receiverCityUpdate(parseInt(e.target.value))}
               >
                 <option>Receiver City</option>
@@ -102,8 +96,8 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                 ))}
               </select>
             </div>
-            <div className="col-6">
-              <select className="form-control">
+            <div className='col-6'>
+              <select className='form-control'>
                 <option>Receiver Area</option>
                 {receiverAreas.map((area) => (
                   <option key={area.id} value={area.id}>
@@ -112,19 +106,19 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
                 ))}
               </select>
             </div>
-            <div className="col-12 mt-3">
+            <div className='col-12 mt-3'>
               <textarea
-                cols="30"
-                rows="3"
-                className="form-control"
-                placeholder="Receiver Street Address, House No"
+                cols='30'
+                rows='3'
+                className='form-control'
+                placeholder='Receiver Street Address, House No'
               ></textarea>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-12">
-              <div className="form-group">
-                <select className="form-control">
+          <div className='col-12 row mt-3'>
+            <div className='col-12'>
+              <div className='form-group'>
+                <select className='form-control'>
                   <option value={0}>Delivery Mode</option>
                   {eligibleDeliveryModes.map((mode) => (
                     <option key={mode.id} value={mode.id}>
@@ -135,50 +129,42 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
               </div>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-6">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Receiver Name"
-                />
+          <div className='col-12 row mt-3'>
+            <div className='col-6'>
+              <div className='form-group'>
+                <input type='text' className='form-control' placeholder='Receiver Name' />
               </div>
             </div>
-            <div className="col-6">
-              <div className="form-group">
-                <input
-                  type="phone"
-                  className="form-control"
-                  placeholder="Receiver Phone"
-                />
+            <div className='col-6'>
+              <div className='form-group'>
+                <input type='phone' className='form-control' placeholder='Receiver Phone' />
               </div>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-12 col-md-4">
-              <div className="form-check">
-                <input type="checkbox" className="form-check-input" />
-                <label className="form-check-label">Fragile</label>
+          <div className='col-12 row mt-3'>
+            <div className='col-12 col-md-4'>
+              <div className='form-check'>
+                <input type='checkbox' className='form-check-input' />
+                <label className='form-check-label'>Fragile</label>
               </div>
             </div>
-            <div className="col-12 col-md-4">
-              <div className="form-check">
-                <input type="checkbox" className="form-check-input" />
-                <label className="form-check-label">Cash on Delivery</label>
+            <div className='col-12 col-md-4'>
+              <div className='form-check'>
+                <input type='checkbox' className='form-check-input' />
+                <label className='form-check-label'>Cash on Delivery</label>
               </div>
             </div>
-            <div className="col-12 col-md-4">
-              <div className="form-check">
-                <input type="checkbox" className="form-check-input" />
-                <label className="form-check-label">Paid by Receiver</label>
+            <div className='col-12 col-md-4'>
+              <div className='form-check'>
+                <input type='checkbox' className='form-check-input' />
+                <label className='form-check-label'>Paid by Receiver</label>
               </div>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-12">
-              <div className="form-group">
-                <select className="form-control">
+          <div className='col-12 row mt-3'>
+            <div className='col-12'>
+              <div className='form-group'>
+                <select className='form-control'>
                   <option value={0}>Packaging Type</option>
                   {packaging_types.map((packaging_type) => (
                     <option value={packaging_type.id} key={packaging_type.id}>
@@ -189,24 +175,22 @@ const Courier = ({ cities, delivery_modes, packaging_types }) => {
               </div>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-12">
-              <div className="form-group">
+          <div className='col-12 row mt-3'>
+            <div className='col-12'>
+              <div className='form-group'>
                 <textarea
-                  className="form-control"
-                  cols="30"
-                  rows="3"
-                  placeholder="Sender Note (Optional)"
+                  className='form-control'
+                  cols='30'
+                  rows='3'
+                  placeholder='Sender Note (Optional)'
                 ></textarea>
               </div>
             </div>
           </div>
-          <div className="col-12 row mt-3">
-            <div className="col-12">
-              <div className="form-group">
-                <button className="btn btn-custom-primary w-100">
-                  Request Pickup
-                </button>
+          <div className='col-12 row mt-3'>
+            <div className='col-12'>
+              <div className='form-group'>
+                <button className='btn btn-custom-primary w-100'>Request Pickup</button>
               </div>
             </div>
           </div>
