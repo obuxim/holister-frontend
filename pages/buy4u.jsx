@@ -70,7 +70,7 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
                 </label>
               </li>
             </ul>
-            <div className="col-7">
+            <div className="col-12 col-md-7">
               {buy4uType == "preferred" ? (
                 <div className="col-12">
                   <div className="form-group">
@@ -180,51 +180,53 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
                 </div>
               </div>
             </div>
-            <div className="col-5 row">
-              <div className="col-5">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    placeholder="Product Name"
-                    className="form-control"
-                    value={itemName}
-                    onChange={(e) => setItemName(e.target.value)}
-                  />
+            <div className="col-12 col-md-5">
+              <div className="row">
+                <div className="col-12 col-md-5">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      placeholder="Product Name"
+                      className="form-control"
+                      value={itemName}
+                      onChange={(e) => setItemName(e.target.value)}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-3">
-                <div className="form-group">
-                  <input
-                    type="number"
-                    value={itemQty}
-                    onChange={(e) => setItemQty(e.target.value)}
-                    placeholder="QTY"
-                    className="form-control"
-                  />
+                <div className="col-4 col-md-3">
+                  <div className="form-group">
+                    <input
+                      type="number"
+                      value={itemQty}
+                      onChange={(e) => setItemQty(e.target.value)}
+                      placeholder="QTY"
+                      className="form-control"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-3">
-                <div className="form-group">
-                  <input
-                    type="number"
-                    value={itemPrice}
-                    onChange={(e) => setItemPrice(e.target.value)}
-                    step="any"
-                    placeholder="Price"
-                    className="form-control"
-                  />
+                <div className="col-4 col-md-3">
+                  <div className="form-group">
+                    <input
+                      type="number"
+                      value={itemPrice}
+                      onChange={(e) => setItemPrice(e.target.value)}
+                      step="any"
+                      placeholder="Price"
+                      className="form-control"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-1">
-                <div className="form-group">
-                  <a className="btn btn-custom-primary" onClick={addItem}>
-                    <FaPlus />
-                  </a>
+                <div className="col-4 col-md-1">
+                  <div className="form-group">
+                    <a className="btn btn-custom-primary" onClick={addItem}>
+                      <FaPlus />
+                    </a>
+                  </div>
                 </div>
+                {items.map((item, index) => (
+                  <SingleItem item={item} key={index} />
+                ))}
               </div>
-              {items.map((item, index) => (
-                <SingleItem item={item} key={index} />
-              ))}
             </div>
             <div className="col-12">
               <div className="form-group">
