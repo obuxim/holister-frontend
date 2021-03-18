@@ -175,14 +175,6 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
                   </select>
                 </div>
               </div>
-              <div className="col-12">
-                <div className="form-group">
-                  <input
-                    type="submit"
-                    className="btn btn-custom-primary w-100"
-                  />
-                </div>
-              </div>
             </div>
             <div className="col-5 row">
               <div className="col-5">
@@ -229,6 +221,11 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
               {items.map((item, index) => (
                 <SingleItem item={item} key={index} />
               ))}
+            </div>
+            <div className="col-12">
+              <div className="form-group">
+                <input type="submit" className="btn btn-custom-primary w-100" />
+              </div>
             </div>
           </div>
         </div>
