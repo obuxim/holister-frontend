@@ -42,14 +42,14 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
           <div className="row">
-            <ul className="nav nav-pills" id="pills-tab" role="tablist">
+            <ul className="p-0 nav nav-pills" id="pills-tab" role="tablist">
               <li
                 onClick={(e) => setBuy4uType("anywhere")}
                 className="mb-3 nav-item col-6 button success text-center"
                 role="presentation"
               >
                 <label
-                  className={`nav-link fs-6 py-3 ${
+                  className={`h-100 d-flex align-items-center nav-link fs-6 py-3 ${
                     buy4uType == "anywhere" && "active"
                   }`}
                 >
@@ -62,7 +62,7 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
                 role="presentation"
               >
                 <label
-                  className={`nav-link fs-6 py-3 ${
+                  className={`h-100 d-flex align-items-center nav-link fs-6 py-3 ${
                     buy4uType == "preferred" ? "active" : ""
                   }`}
                 >

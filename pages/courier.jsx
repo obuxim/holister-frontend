@@ -31,7 +31,7 @@ const courier = ({ cities, delivery_modes, packaging_types, pricings }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
           <div className="row">
-            <ul className="nav nav-pills" id="pills-tab" role="tablist">
+            <ul className="p-0 nav nav-pills" id="pills-tab" role="tablist">
               <li
                 onClick={(e) => setCourierType("intracity")}
                 className="mb-3 nav-item col-6 button success text-center"
