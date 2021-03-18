@@ -1,12 +1,15 @@
 import React from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="navbar sticky-top navbar-light bg-white shadow-sm">
       <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <img src="assets/logo.svg" alt="#" />
-        </a>
+        <Link href="/">
+          <a className="navbar-brand">
+            <img src="assets/logo.svg" alt="#" />
+          </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
