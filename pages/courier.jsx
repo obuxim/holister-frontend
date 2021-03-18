@@ -228,6 +228,11 @@ const courier = ({ cities, delivery_modes, packaging_types, pricings }) => {
                     className="form-control"
                   >
                     <option value="">Delivery Mode</option>
+                    {delivery_modes.map((delivery_mode) => (
+                      <option key={delivery_mode.id} value={delivery_mode.id}>
+                        {delivery_mode.title}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

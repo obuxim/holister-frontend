@@ -15,7 +15,11 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
   const [buy4uType, setBuy4uType] = useState("anywhere");
   const [items, setItems] = useState([]);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    data.items = items;
+    setItems([]);
+    console.log(data);
+  };
   const updateDeliveryAreas = (deliveryCityId) => {
     const cityObj = cities.filter((city) => city.id == deliveryCityId)[0];
     setDeliveryCity(cityObj);
@@ -213,9 +217,9 @@ const buy4u = ({ cities, delivery_modes, packaging_types, pricings }) => {
               </div>
               <div className="col-1">
                 <div className="form-group">
-                  <button className="btn btn-custom-primary" onClick={addItem}>
+                  <a className="btn btn-custom-primary" onClick={addItem}>
                     <FaPlus />
-                  </button>
+                  </a>
                 </div>
               </div>
               {items.map((item, index) => (
