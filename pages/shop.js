@@ -27,22 +27,6 @@ const products = [
     id: 6,
     title: "Whole Halisha (900 GM)",
   },
-  {
-    id: 7,
-    title: "Basa Fish Fillet (1 KG)",
-  },
-  {
-    id: 8,
-    title: "Kaski Fish (250 GM)",
-  },
-  {
-    id: 9,
-    title: "Puti Fish (250 GM)",
-  },
-  {
-    id: 10,
-    title: "Koi Fish Processed (10/12 pcs) 1 KG",
-  },
 ];
 
 const shop = () => {
