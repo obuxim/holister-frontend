@@ -55,6 +55,32 @@ const products = {
       title: 'Garlic',
     },
   ],
+  personal_care: [
+    {
+      id: 13,
+      title: 'ponds face wash pure white',
+    },
+    {
+      id: 14,
+      title: 'ponds face wash white beauty',
+    },
+    {
+      id: 15,
+      title: "Pond's Mineral Clay Mask Pure White D-Toxx",
+    },
+    {
+      id: 16,
+      title: 'Freyias Milk Peeling Weekly Face Wash',
+    },
+    {
+      id: 17,
+      title: "Pond's Mineral Clay Mask White Beauty",
+    },
+    {
+      id: 18,
+      title: 'Fairever With Saffron & Milk Fairness Solution Cream',
+    },
+  ],
 };
 
 const shop = () => {
@@ -71,6 +97,12 @@ const shop = () => {
         <div className='row mt-4'>
           <h3>Vegitables</h3>
           {products.vegitables.map((product) => (
+            <ProductCard id={product.id} title={product.title} key={product.id} />
+          ))}
+        </div>
+        <div className='row mt-4'>
+          <h3>Personal Care</h3>
+          {products.personal_care.map((product) => (
             <ProductCard id={product.id} title={product.title} key={product.id} />
           ))}
         </div>
