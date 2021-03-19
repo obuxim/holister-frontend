@@ -29,7 +29,8 @@ const courier = ({ cities, delivery_modes, packaging_types, aPricings }) => {
         body: JSON.stringify(data),
       });
       const json = await res.json();
-      if (json.success == "true") {
+      console.log(json.success);
+      if (json.success == true) {
         setSuccess(true);
       }
     } catch (error) {
