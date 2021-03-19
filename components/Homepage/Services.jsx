@@ -39,16 +39,18 @@ const Services = () => {
               </Link>
             </div>
             <div className="col">
-              <div className="card card-border-none rounded shadow-sm">
-                <img
-                  src="/assets/icons/shop.svg"
-                  className="card-img-top px-5 px-lg-5 py-3 py-lg-4"
-                  alt="..."
-                />
-                <div className="card-body px-2 pb-2">
-                  <p className="fs-6 fs-lg-4 card-title text-center">SHOP</p>
-                </div>
-              </div>
+              <Link href="/shop">
+                <a className="card card-border-none rounded shadow-sm">
+                  <img
+                    src="/assets/icons/shop.svg"
+                    className="card-img-top px-5 px-lg-5 py-3 py-lg-4"
+                    alt="..."
+                  />
+                  <div className="card-body px-2 pb-2">
+                    <p className="fs-6 fs-lg-4 card-title text-center">SHOP</p>
+                  </div>
+                </a>
+              </Link>
             </div>
             <div className="col">
               <div className="card card-border-none rounded shadow-sm">
